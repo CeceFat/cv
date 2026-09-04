@@ -44,6 +44,18 @@
         });
     }
 
+    /* ---------- Logo / back-to-top: scroll to top without reloading, keep URL clean ---------- */
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.logo, .back-to-top').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+            if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+            }
+        });
+    });
+
     /* ---------- Back to top ---------- */
     var backToTop = document.getElementById('back-to-top');
     if (backToTop) {
