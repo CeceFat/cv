@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Google Drive for desktop 上傳暫存，不是專案內容
+.tmp.driveupload/
